@@ -1,6 +1,9 @@
-//OpenCV program that loads and displays an image
+// OpenCV program that loads and displays an image
 
-#include <opencv2/opencv.hpp>
+#include "opencv2/highgui/highgui.hpp"
+#include <iostream>
+
+using namespace cv;
 
 void loader(char** argv ) {
 	std::cout << "\n"
@@ -18,14 +21,14 @@ int main( int argc, char** argv ) {
 	}
 		
 
-  cv::Mat img = cv::imread( argv[1], -1 );
+  Mat img = imread( argv[1], -1 );
 
   if( img.empty() ) return -1;
 
-  cv::namedWindow( "Fruits", cv::WINDOW_AUTOSIZE );
-  cv::imshow( "Fruits", img );
-  cv::waitKey( 0 );
-  cv::destroyWindow( "Fruits" );
+  namedWindow( "Fruits", WINDOW_AUTOSIZE );
+  imshow( "Fruits", img );
+  waitKey( 0 );
+  destroyWindow( "Fruits" );
 
   return 0;
 }
